@@ -1,0 +1,27 @@
+<h1>Folder#show</h1>
+<p>Find me in app/views/folder/show.html.erb</p>
+
+Folder.show  ... @folder is :
+<%= @folder %><br />
+
+<hr/>
+
+<table>
+  <tr>
+<% 
+  num = 0
+  @folder.pictures.each do |pic|
+    num += 1
+    
+    pic_url = url_for(:controller => "picture", :action => "image", :id => pic.id)
+%>
+<td> <img src="<%= pic_url %>" /> </td>
+<%
+    if (num % 4 == 0)
+      num %= 4
+      %> </tr><tr> <%
+    end
+  end
+%>
+</tr>
+</table>

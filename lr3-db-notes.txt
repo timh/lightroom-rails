@@ -1,0 +1,16 @@
+
+// from lightroom-catalog.lrcat:
+sqlite> SELECT file.id_local AS file_lid, file.id_global AS file_gid, folder.id_local AS folder_lid, file.originalFilename AS file_fname FROM AgLibraryFile file INNER JOIN AgLibraryFolder folder ON file.folder = folder.id_local WHERE folder.pathFromRoot = '2011-02-01.gf1.skiing-crystal,operation/' LIMIT 5;
+file_lid|file_gid|folder_lid|file_fname
+2293358|3A634999-4085-46CF-B3D9-F711C56D04E0|2293357|P1020692.RW2
+2293370|798ED056-1FEB-4B3F-9FFA-AC8EA8F8E412|2293357|P1020693.RW2
+2293382|5264E736-7C25-466A-9BB0-4D92FB39EC4F|2293357|P1020694.RW2
+2293394|1D076B41-E464-4B35-8AEB-7C2362297CF1|2293357|P1020695.RW2
+2293406|B7015542-6629-43CC-8C1E-C1CB77E9F5AB|2293357|P1020696.RW2
+
+// from lightroom-previews.lrdata/previews.db:
+sqlite> select uuid,digest from pyramid where uuid = '3A634999-4085-46CF-B3D9-F711C56D04E0';
+uuid|digest
+3A634999-4085-46CF-B3D9-F711C56D04E0|3b8c8abdf590866313ed1fb62129c904
+
+file is in lightroom-previews.lrdaa/3/3A63/3A634999-4085-46CF-B3D9-F711C56D04E0.3b8c8abdf590866313ed1fb62129c904
