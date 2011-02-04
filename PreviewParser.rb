@@ -34,9 +34,11 @@ class PreviewParser
 
   attr_accessor :previews
   
+  # Pass in either a string filename or a Picture object to parse
+  # that preview.
   def initialize(filename)
     if (filename.kind_of? Picture)
-      filename = "lightroom-previews.lrdata/#{filename.previewPath}"
+      filename = filename.previewPath
     end
     
     @filename = filename

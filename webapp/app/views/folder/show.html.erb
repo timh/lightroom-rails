@@ -13,9 +13,10 @@ Folder.show  ... @folder is :
   @folder.pictures.each do |pic|
     num += 1
     
-    pic_url = url_for(:controller => "picture", :action => "image", :id => pic.id)
+    thumb_url = url_for(:controller => "picture", :action => "image", :local_id => pic.local_id, :min_width => 100)
+    full_url = url_for(:controller => "picture", :action => "image", :local_id => pic.local_id, :min_width => 1000)
 %>
-<td> <img src="<%= pic_url %>" /> </td>
+<td> <a href="<%= full_url %>"><img src="<%= thumb_url %>" /></a> </td>
 <%
     if (num % 4 == 0)
       num %= 4
