@@ -6,6 +6,30 @@ Folder.show  ... @folder is :
 
 <hr/>
 
+Folders:<br/>
+<ul>
+<%
+  # Emit links to each child folder.
+  @folder.child_folders.each do |child_folder|
+    folder_url = url_for(:controller => "folder", :action => "show", :path => child_folder.path)
+    folder_name = child_folder.path
+
+    %>
+    <li><a href="<%= folder_url %>"><%= folder_name %></a></li>
+    <%
+  end
+
+  # Emit a link to the parent folder
+  if @parent_folder_path
+    parent_folder_url = url_for(:controller => "folder", :action => "show", :path => @parent_folder_path)
+    %>
+    <li><a href="<%= parent_folder_url %>">(parent)</a></li>
+    <%
+  end
+%>
+</ul>
+
+Pictures:<br/>
 <table>
   <tr>
 <% 

@@ -1,7 +1,7 @@
 Webapp::Application.routes.draw do
   #map.connection 'folders/:path', :controller => 'folder', :action => 'show', :path => /.+/
   #map.connection 'image/:id.jpg', :controller => 'picture', :action => 'image'
-  match 'folders/:path' => 'folder#show', :constraints => { :path => /.+/ }
+  match 'folders/:path' => 'folder#show', :constraints => { :path => /.*/ }
   match 'images/:local_id' => 'picture#image', :constraints => { :local_id => /\d+/ }
 
   
